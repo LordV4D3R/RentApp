@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RentAppForm.View"
         mc:Ignorable="d"
-        Title="LoginView" Height="450" Width="800"
+        Title="LoginView" Height="550" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -16,7 +16,7 @@
 
     <Border CornerRadius="12">
         <Border.Background>
-            <ImageBrush ImageSource="/Images/Nha_tro_img.png"
+            <ImageBrush ImageSource="/Images/Nha_tro_BackGround.png"
                         Stretch="None"/>
         </Border.Background>
 
@@ -26,16 +26,16 @@
 
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#462AD8" Offset="0" />
-                    <GradientStop Color="#DA34AE" Offset="0.75" />
-                    <GradientStop Color="#8A16C1" Offset="1" />
+                    <GradientStop Color="{StaticResource winBorderColor4}" Offset="0" />
+                    <GradientStop Color="{StaticResource winBorderColor5}" Offset="0.75" />
+                    <GradientStop Color="{StaticResource winBorderColor6}" Offset="1" />
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#FF281A71" Offset="0" />
-                    <GradientStop Color="#FF615B80" Offset="0.75" />
+                    <GradientStop Color="{StaticResource winBorderColor7}" Offset="0" />
+                    <GradientStop Color="{StaticResource winBorderColor8}" Offset="0.75" />
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -63,14 +63,14 @@
 
                     <Button x:Name="btnMinimize"
                         BorderThickness="0"
-                        Content="_"
+                        Content="-"
                         Foreground="White"
                         FontSize="16"
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Grid.Column="1"
                         Click="btnMinimize_Click">
-                        
+
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="#28AEED"/>
@@ -124,13 +124,144 @@
                         </Button.Template>
                     </Button>
 
-
-
-
-
                 </Grid>
+                <StackPanel Width="300"
+                                Grid.Row="2"
+                                Orientation="Vertical"
+                                Margin="0,0,0,0">
+                    
 
+                    <Image Source="/Images/Nha_tro_Logo.png"
+                           Width="125" Height="125"/>
+
+                    <TextBlock Text="QUẢN LÝ NHÀ TRỌ"
+                               Foreground="White"
+                               FontSize="30"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <TextBlock Text="Liên hệ 09XXXXXX để bảo hành"
+                               Foreground="LightGray"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Margin="0,5,0,0"/>
+
+                    <TextBlock Text="Tên Đăng Nhập"
+                               Foreground="White"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               Margin="0,25,5,0"/>
+
+                    <TextBox x:Name="txtuserName"
+                             FontSize="30"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Foreground="DarkGray"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="30"
+                             VerticalAlignment="Center"
+                             Margin="0,5,0,0"
+                             Padding="22,0,0,0">
+
+                        <TextBox.Background>
+                            <ImageBrush ImageSource="/Images/UserIcon.png"
+                                        Stretch="Uniform"
+                                        AlignmentX="Left"/>
+                        </TextBox.Background>
+
+                    </TextBox>
+
+                    <TextBlock Text="Mật Khẩu"
+                            Foreground="White"
+                            FontSize="15"
+                            FontWeight="Medium"
+                            FontFamily="Montserrat"
+                            Margin="0,20,5,0"/>
+
+                    <PasswordBox x:Name="txtPassword"
+                            FontSize="30"
+                            FontWeight="Medium"
+                            FontFamily="Montserrat"
+                            Foreground="DarkGray"
+                            CaretBrush="LightGray"
+                            BorderBrush="DarkGray"
+                            BorderThickness="0,0,0,1"
+                            Height="30"
+                            VerticalAlignment="Center"
+                            Margin="0,5,0,0"
+                            Padding="30,0,0,0">
+
+                        <PasswordBox.Background>
+                            <ImageBrush ImageSource="/Images/PasswordIcon.png"
+                                        Stretch="Uniform"
+                                        AlignmentX="Left"/>
+
+                        </PasswordBox.Background>
+
+                    </PasswordBox>
+
+                    <Button x:Name="btnLogin"
+                            BorderThickness="0"
+                            Content="Login"
+                            Foreground="White"
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Margin="0,40,0,0" Background="#FF77A0F1"
+                            IsDefault="True"
+                            Click="btnLogin_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#FF8191D2"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="150" Height="40"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"/>
+
+                                </Border>
+
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,10,0,0">
+                        <TextBlock Text="Quên Mật Khẩu? "
+                                Foreground="DarkGray"
+                                FontSize="12"
+                                FontWeight="Medium"
+                                FontFamily="Mo"/>
+                        <TextBlock Text="Bấm vào đây!"
+                                Foreground="White"
+                                FontSize="12"
+                                FontWeight="Medium"
+                                FontFamily="Montserrat"
+                                Cursor="Hand" PreviewMouseDown="resetPwd"/>
+                    </StackPanel>
+                </StackPanel>
             </Grid>
+
 
         </Border>
     </Border>

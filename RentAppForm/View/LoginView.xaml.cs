@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace RentAppForm.View
     /// </summary>
     public partial class LoginView : Window
     {
+        private readonly IConfiguration _configuration;
         public LoginView()
         {
             InitializeComponent();
+            _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -41,6 +44,31 @@ namespace RentAppForm.View
         {
             Application.Current.Shutdown();
 
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string username = txtuserName.Text;
+            string password = txtPassword.Password;
+
+            string adminUsername = _configuration["DefaultAdminAccount:Username"];
+            string adminPassowrrd = _configuration["DefaultAdminAccount:Password"];
+
+            if(username == adminUsername && password == adminPassowrrd)
+            {
+                //login success, move to next form
+                //var adminManagement = new 
+            }
+            else
+            {
+                MessageBox.Show("Mật khẩu hay tên đăng nhập không đúng hoặc không tồn tại. Vui lòng thử lại!!!");
+            }
+
+        }
+
+        private void resetPwd(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Tài khoản:admin123, Mật khẩu:admin123");
         }
     }
 }
