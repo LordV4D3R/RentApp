@@ -4,8 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RentAppForm.View"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="ManagementView" Height="450" Width="800">
+        Title="ManagementView" Height="1080" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent">
 
-    
+    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--LeftMenu-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <!--Menu Icon-->
+                <Button Margin="20 20 0 35" Style="{StaticResource topButton}">
+                    <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
+                </Button>
+                
+            </Grid>
+            
+        </Grid>
+    </Border>
+
+
 </Window>

@@ -57,7 +57,9 @@ namespace RentAppForm.View
             if(username == adminUsername && password == adminPassowrrd)
             {
                 //login success, move to next form
-                //var adminManagement = new 
+                var adminManagement = new ManagementView();
+                adminManagement.Show();
+                Close();
             }
             else
             {
