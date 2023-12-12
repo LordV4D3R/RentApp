@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Windows.Themes;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +21,16 @@ namespace RentAppForm.View
     /// </summary>
     public partial class ManagementView : Window
     {
+        private bool IsMaximized = false;
+
         public ManagementView()
         {
             InitializeComponent();
         }
+
+
+        //Button
+
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -50,6 +58,40 @@ namespace RentAppForm.View
                 this.DragMove();
             }
         }
-        private bool IsMaximized = false;
+
+        private void btnExitApp_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            var loginView = new LoginView();
+            loginView.Show();
+            Close();
+        }
+
+        private void btnRoom_Click(object sender, RoutedEventArgs e)
+        {
+            var roomView = new RoomView();
+            roomView.Show();
+            Close();
+        }
+
+        private void btnCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            var customerView = new CustomerView();
+            customerView.Show();
+            Close();
+
+        }
+
+        private void btnService_Click(object sender, RoutedEventArgs e)
+        {
+            var serviceView = new ServiceView();
+            serviceView.Show();
+            Close();
+
+        }
     }
 }

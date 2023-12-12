@@ -1,0 +1,50 @@
+﻿<Window x:Class="RentAppForm.View.ServiceView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentAppForm.View"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"        
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"       
+        Title="Quản lý hoá đơn" Height="680" Width="830">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
+    <!--Main Section-->
+    <Grid Grid.Column="1" Margin="30 20 20 20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <!--Search TextBox-->
+        <Grid Width="300" HorizontalAlignment="Left">
+            <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
+                   Panel.ZIndex="1" Text="Tìm kiếm ..."
+                   Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+            <TextBox x:Name="txtSearch" Style="{StaticResource textBoxSearch}"/>
+            <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
+                               Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"/>
+
+        </Grid>
+        <!--Top Buttons-->
+        <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc" HorizontalAlignment="Right">
+            <Icon:PackIconMaterial Kind="Backburger" />
+        </Button>
+        <!--Page Title-->
+        <TextBlock Text="Danh sách hoá đơn" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" 
+               HorizontalAlignment="Left" Foreground="#121518"/>
+        <!--Add Button-->
+        <Button Style="{StaticResource addButton}">
+            <StackPanel Orientation="Horizontal">
+                <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
+                <TextBlock Text="Thêm Hoá đơn" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

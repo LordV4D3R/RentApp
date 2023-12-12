@@ -6,32 +6,79 @@
         xmlns:local="clr-namespace:RentAppForm.View"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="ManagementView" Height="1080" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Title="Quản lí nhà trọ" Height="550" Width="680" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
 
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
     <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
             <!--LeftMenu-->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                
+
                 <!--Menu Icon-->
-                <Button Margin="20 20 0 35" Style="{StaticResource topButton}">
-                    <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
+                <Button x:Name="btnLogout" Margin="20 20 0 35" Style="{StaticResource topButton}" Click="btnLogout_Click">
+                    <Icon:PackIconMaterial Kind="Logout" Width="15" Height="15"/>
                 </Button>
-                
+                <Border Grid.Row="1" Background="#623ed0" CornerRadius="0 50 0 30">
+                    <DockPanel>
+                        <!--Menu Logo-->
+                        <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
+                                DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="20 -30 0 0">
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/Images/UserIcon_Management.png"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+
+                        <!--Menu Titles-->
+                        <TextBlock Text="Ứng dụng quản lý thuê phòng trọ" Foreground="White" FontSize="22" FontWeight="SemiBold"
+                                   DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
+                        <TextBlock Text="Xin chào người dùng" Foreground="#d0bfff" FontSize="22" FontWeight="SemiBold"
+                                   DockPanel.Dock="Top" TextAlignment="Center"/>
+
+                        <!--Menu Seprator-->
+                        <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"/>
+
+                        <!--Menu Button-->
+                        <StackPanel DockPanel.Dock="Top">
+                            <Button x:Name="btnRoom" Style="{StaticResource menuButton}" Click="btnRoom_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="HomeModern" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Phòng trọ" />
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="btnCustomer" Style="{StaticResource menuButton}" Click="btnCustomer_Click" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="AccountMultiple" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Khách hàng" />
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="btnService" Style="{StaticResource menuButton}" Click="btnService_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Receipt" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Hoá đơn" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <Button x:Name="btnExitApp" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="btnExitApp_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="ExitToApp" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Thoát ứng dụng" />
+                            </StackPanel>
+                        </Button>
+
+                    </DockPanel>
+                </Border>
             </Grid>
-            
+
+
         </Grid>
     </Border>
-
-
 </Window>
