@@ -10,5 +10,6 @@ namespace Services.Rooms
     public interface IRoomService
     {
         List<Room> GetAllRooms();
+        Room GetRoomById(int id);
     }
 }

@@ -19,5 +19,10 @@ namespace Services.Rooms
         {
             return roomRepository.GetAllRooms();
         }
+
+        public Room GetRoomById(int id)
+        {
+            return roomRepository.GetRoomByID(id);
+        }
     }
 }

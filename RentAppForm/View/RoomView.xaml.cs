@@ -23,6 +23,7 @@ namespace RentAppForm.View
     public partial class RoomView : Window
     {
         private IRoomService roomService = null;
+        public static string SetRoomID = null;
         public RoomView()
         {
             InitializeComponent();
@@ -49,7 +50,11 @@ namespace RentAppForm.View
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+            
+            var RoomDetailView = new RoomDetailView();
+            RoomDetailView.Show();
 
+            Close();
         }
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)
